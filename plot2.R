@@ -8,11 +8,15 @@ subsetData <- data[data$Date %in% c("1/2/2007", "2/2/2007")]
 #converting global active power data to numerics
 globalActivePower <- as.numeric(subsetData$Global_active_power)
 
-#changing the device mode and creating a new png file
-png("plot1.png", height = 480, width = 480)
+#format the date and time
+dates <- strptime(paste(subsetData$Date, subsetData$Time, sep=" "), 
+                  "%d/%m/%Y %H:%M:%S")
 
-#plotting the data
-hist(globalActivePower, main = "Global Active Power", 
-     xlab = "Global Active Power (kilowatts)", col = "RED")
+#changing the device mode and creating a new png file
+png("plot2.png", height = 480, width = 480)
+
+#plot the data by mentioning the type as lines
+plot(dates, globalActivePower, type = "l", 
+     ylab = "Global Active Power (kilowatts)")
 
 dev.off()
