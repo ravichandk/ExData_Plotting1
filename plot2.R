@@ -17,6 +17,6 @@ png("plot2.png", height = 480, width = 480)
 
 #plot the data by mentioning the type as lines
 plot(dates, globalActivePower, type = "l", 
-     ylab = "Global Active Power (kilowatts)")
+     ylab = "Global Active Power (kilowatts)", xlab="")
 
 dev.off()
